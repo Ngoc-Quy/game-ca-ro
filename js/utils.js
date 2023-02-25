@@ -70,7 +70,6 @@ export function checkGameStatus(cellValues) {
   // win
   if (winSetIndex >= 0) { 
     const winValue = cellValues[winSetIndex];
-    console.log(Window)
     
     return {
       status: winValue === CELL_VALUE.CROSS ? GAME_STATUS.X_WIN : GAME_STATUS.O_WIN,
