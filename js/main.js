@@ -105,7 +105,7 @@ function resetGame() {
   cellValues = cellValues.map(() => '');
   // update game status
   updateGameStatus(GAME_STATUS.PLAYING);
-  // 
+  
   const currentTurnElement = getCurrentTurnElement()
   if (currentTurnElement) {
     currentTurnElement.classList.remove(TURN.CIRCLE, TURN.CROSS);

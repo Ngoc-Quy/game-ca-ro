@@ -47,7 +47,6 @@ export function checkGameStatus(cellValues) {
     throw new Error('Invalid cell Values');
   }
 
-  
   const checkSetList = [
     [0, 1, 2],
     [3, 4, 5],
@@ -70,18 +69,17 @@ export function checkGameStatus(cellValues) {
   });
   // win
   if (winSetIndex >= 0) { 
-    const winValueIndex = checkSetList[winSetIndex[0]]
-    const winValue = cellValues[winValueIndex];
+    const winValue = cellValues[winSetIndex];
 
     return {
-      status: winValue === CELL_VALUE.CIRCLE ? GAME_STATUS.O_WIN : GAME_STATUS.X_WIN,
+      status: winValue === CELL_VALUE.CROSS ? GAME_STATUS.X_WIN : GAME_STATUS.O_WIN,
       winPositions: checkSetList[winSetIndex],
     };
   }
   // endGame and playing
   const isEndGame = cellValues.filter(x => x === '').length === 0;
   return {
-    status: isEndGame ? GAME_STATUS.ENDED :GAME_STATUS.PLAYING,
+    status: isEndGame ? GAME_STATUS.ENDED : GAME_STATUS.PLAYING,
     winPositions: [],
   };
 }
